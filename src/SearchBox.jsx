@@ -2,7 +2,7 @@ import "./SearchBox.css"
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { useState } from "react";
-export default function SearchBox()
+export default function SearchBox({handleNewData})
 {
     let [city, setCity] = useState("")
 
@@ -12,8 +12,18 @@ export default function SearchBox()
     let getWeatherInfo = async ()=>{
         let res = await fetch(`${API_URL}${city}&appid=${API_KEY}&units=metric`)
         let jsonRes = await res.json()
-        console.log(jsonRes)
-        
+        // console.log(jsonRes)
+        let result = {
+            city: city,
+            temp: jsonRes.main.temp,
+            tempMin: jsonRes.main.temp_min,
+            tempMax: jsonRes.main.temp_max,
+            humidity: jsonRes.main.humidity,
+            feelsLike: jsonRes.main.feels_like,
+            whether: jsonRes.weather[0].description
+        }
+        console.log(result)
+        handleNewData(result)
     }
     function handleChange(e){
         setCity(e.target.value)
@@ -25,6 +35,7 @@ export default function SearchBox()
         console.log(city)
         getWeatherInfo()  
         setCity("")
+        
     }
     return (
         <div className="SearchBox">

@@ -1,0 +1,19 @@
+body{
+    background-color: bisque;
+}
+.InfoBox {
+    display: flex;
+    flex-direction: column;
+    align-items: center;   /* horizontal center */
+    justify-content: center;
+    
+}
+
+.InfoBox > div {
+    display: flex;
+    justify-content: center;
+  
+     
+    margin-bottom: 50px;
+
+}
