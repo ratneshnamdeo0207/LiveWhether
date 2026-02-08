@@ -9,15 +9,8 @@ import SearchBox from './SearchBox.jsx'
 
 
 export default function InfoBox() {
-    let [weather, setWeather] = useState({
-        city: "Delhi",
-        temp: 290.28,
-        tempMin: 289.51,
-        tempMax: 291.21,
-        humidity: 69,
-        feelsLike: 289.85,
-        whether: "Haze"
-    })
+    let [weather, setWeather] = useState(null);
+
     let handleNewData=(w) =>
     {
         setWeather(w)
@@ -33,29 +26,28 @@ export default function InfoBox() {
 
         <>
             <SearchBox handleNewData={handleNewData}/>
-            <div  className="InfoBox">
-
-            <h2>WeatherInfo- {weather.city.toUpperCase()}</h2>
-            <div>
-                <Card sx={{ maxWidth: 400 }}>
-                    <CardMedia
-                        component="img"
-                        alt="green iguana"
-                        height="140"
-                        image={weather.humidity > 40 ? Rainy_URL : weather.temp < 15 ? Cold_URL : Hot_URL}
-                    />
-                    <CardContent>
-                        <h2>{weather.city.toUpperCase()}</h2>
-                        <p>Temperature: {weather.temp}&deg;C </p>
-                        <p>Humidity: {weather.humidity} </p>
-                        <p>Min Temp: {weather.tempMin} </p>
-                        <p>Max Temp: {weather.tempMax} </p>
-                        <p>The weather can be described as <i>{weather.whether}</i> and feels like {weather.feelsLike}&deg;C </p>
-                    </CardContent>
-                   
-                </Card>
-            </div>
+            {weather && (
+    <div className="InfoBox">
+        <h2>WeatherInfo- {weather.city.toUpperCase()}</h2>
+        <div>
+            <Card sx={{ maxWidth: 400 }}>
+                <CardMedia
+                    component="img"
+                    height="140"
+                    image={weather.humidity > 40 ? Rainy_URL : weather.temp < 15 ? Cold_URL : Hot_URL}
+                />
+                <CardContent>
+                    <h2>{weather.city.toUpperCase()}</h2>
+                    <p>Temperature: {weather.temp}&deg;C </p>
+                    <p>Humidity: {weather.humidity} </p>
+                    <p>Min Temp: {weather.tempMin} </p>
+                    <p>Max Temp: {weather.tempMax} </p>
+                    <p>The weather can be described as <i>{weather.whether}</i> and feels like {weather.feelsLike}&deg;C </p>
+                </CardContent>
+            </Card>
         </div>
+    </div>
+)}
         </>
 
     )

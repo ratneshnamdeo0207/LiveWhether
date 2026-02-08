@@ -42,7 +42,7 @@ export default function SearchBox({handleNewData})
             <h2>Search for Weather</h2>
             <form action="" onSubmit={handleSubmit}>
 
-                 <TextField id="outlined-basic" label="Outlined" variant="outlined" value={city} onChange={handleChange} />
+                 <TextField id="outlined-basic" label="Enter City" variant="outlined" value={city} onChange={handleChange} />
 
                  <br /><br />
 
