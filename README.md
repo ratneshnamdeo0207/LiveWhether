@@ -68,7 +68,7 @@ npm run dev
 
 OpenWeatherMap Weather API - https://openweathermap.org/api
 
-##Future Improvements
+## Future Improvements
 
 1. Add error handling for invalid city names
 2. Add loading indicator while fetching data
@@ -77,10 +77,7 @@ OpenWeatherMap Weather API - https://openweathermap.org/api
 
 ## Author
 
-Ratnesh Namdeo
-Computer Science Engineering Graduate
+Ratnesh Namdeo, Computer Science Engineering Graduate
 
 
 
-```bash
-git clone https://github.com/ratneshnamdeo0207/LiveWeather.git
