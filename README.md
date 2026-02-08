@@ -6,8 +6,7 @@ LiveWeather is a simple and responsive weather application built using **React.j
 
 ## Live Project Link
 
-https://liveweather-xxxxx.onrender.com  
-*(Replace this with your actual Render deployed link)*
+https://livewhether.onrender.com/  
 
 ---
 
